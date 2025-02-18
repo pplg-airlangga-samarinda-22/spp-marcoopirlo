@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Login - Aplikasi Pembayaran SPP</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin - Aplikasi Pembayaran SPP</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Warna latar belakang */
+        }
+        .login-container {
+            margin-top: 100px; /* Jarak dari atas */
+        }
+        .login-form {
+            padding: 20px;
+            background-color: #ffffff; /* Warna latar belakang form */
+            border-radius: 5px; /* Radius sudut */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-   
-     <h3>Aplikasi Pembayaran SPP.</h3>
-     <div class="alert alert-info">
-        Anda Login Sebagai <b>Administrator</b> Aplikasi Pembayaran SPP.
-     </div>
-     <a href="admin.php" class="btn btn-primary"> Administrator</a>
-     <a href="admin.php?url=spp" class="btn btn-primary"> SPP</a>
-     <a href="admin.php?url=kelas" class="btn btn-primary"> Kelas</a>
-     <a href="admin.php?url=siswa" class="btn btn-primary"> Siswa</a>
-     <a href="admin.php?url=petugas" class="btn btn-primary"> Petugas</a>
-     <a href="admin.php?url=pembayaran" class="btn btn-primary"> Pembayaran</a>
-     <a href="admin.php?url=laporan" class="btn btn-primary"> Laporan</a>
-     <a href="admin.php?url=logout" class="btn btn-primary"> Logout</a>
+    <div class="container">
+        <div class="row justify-content-center login-container">
+            <div class="col-md-6">
+                <div class="login-form">
+                    <h2 class="text-center">Login Administrator</h2>
+                    <form action="cek_login.php" method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-     <div class="card-mt-2">
-        <div class="card-body">
-            <!-- Ini isi web kita -->
-            <?php
-            $file = @$_GET['url'];
-            if(empty($file)){
-                echo"<h4>Selamat Datang Di Halaman Administrator.</h4>";
-                echo"Aplikasi pembayaran SPP Digunakan untuk mempermudah dalam mencatat pembayaran
-                siswa / siswi disekolah.";
-            }else{
-                include $file. '.php';
-            }
-            ?>
-</div>
-</div>
-
-</div>
-
-<script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
